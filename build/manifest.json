@@ -1,0 +1,50 @@
+{
+	"manifest_version": 2,
+	"name": "swagger扩展",
+	"version": "1.0",
+	"description": "swagger增加扩展，提供快速搜索，预览，快速执行功能",
+	"author": "sicy",
+	"icons":
+	{
+		"48": "icon.png",
+		"128": "icon.png"
+	},
+	"page_action":
+	{
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts":
+	[
+		{
+			//"matches": ["<all_urls>"],
+			"matches": ["http://*/*/swagger*"],
+			"js": ["jquery-1.8.3.js", "content-script.js", "injected.js"],
+			// JS的注入可以随便一点，但是CSS的注意就要千万小心了，因为一不小心就可能影响全局样式
+			"css": ["css/custom.css"],
+			"run_at": "document_start"
+		}
+	],
+	"web_accessible_resources":
+	[
+		"injected.js",
+		"index.html"
+	],
+	"permissions":
+	[
+		"declarativeContent",
+    "storage",
+    "webNavigation",
+		"activeTab",
+    "tabs",
+    "notifications",
+    "http://*/",
+    "https://*/",
+    "webRequest",
+    "webRequestBlocking"
+	],
+	"background":
+	{
+		"scripts": ["background.js"]
+	}
+}

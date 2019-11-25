@@ -1,0 +1,15 @@
+.chrome-plugin-swagger-list-panel {
+  width: 310px;
+  height: 100%;
+  position: fixed;
+  border: 1px solid lightgray;
+  overflow: visible;
+  box-sizing: border-box;
+  /* padding-bottom: 30px;
+  padding-top: 64px; */
+  z-index: 1000000001;
+  right: 0px !important;
+  top: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+}
