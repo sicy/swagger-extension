@@ -1,6 +1,6 @@
 /*global chrome*/
 import React, {Component} from "react";
-import {List, Typography} from "antd";
+import {List} from "antd";
 
 class UxListItem extends Component {
   constructor(props) {
@@ -13,6 +13,14 @@ class UxListItem extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.currentShow != this.state.tag.name){
+      this.setState({
+        itemPathsShow: false
+      });
+    }
+  }
+
   state = {
     paths: [{path: "/aaa/bbb"}, {path: "/aaa/bbb"}, {path: "/aaa/bbb"}],
     tag: {},
@@ -23,6 +31,8 @@ class UxListItem extends Component {
     this.setState({
       itemPathsShow: !this.state.itemPathsShow
     });
+    // 向父组件传递切换信息
+    this.props.changeListShow(this.state.tag.name);
   };
 
   handleFouce = (item) => {

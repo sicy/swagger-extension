@@ -72,10 +72,10 @@ chrome.runtime.onMessage.addListener(msg => {
 //滚动到指定位置
 function scrollTo(element) {
   if (!element) {
-    $("html,body").animate({scrollTop: 0}, 300);
+    $("html,body").animate({scrollTop: 0});
   } else {
     if (element.length > 0) {
-      $("html,body").animate({scrollTop: $(element).offset().top - 20}, 500);
+      $("html,body").animate({scrollTop: $(element).offset().top - 20});
     }
   }
 }
